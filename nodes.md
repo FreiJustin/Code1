@@ -45,7 +45,13 @@ L02.1_HTML
 - What's the meaning of HTML? Hypertext Markup Language
 - where does the Markup come from? Elements are marked up using tags which explain the purpose of that part of the content
 - What is Syntax? Syntax is the "Grammar" of the Code
-What is Semantics? Semantics is the vocabulary of the Code
+- What is Semantics? Semantics is the vocabulary of the Code
 
 L02.2_HTML
-- The browser has to load only the String Content when opening an html file while it also has to load the pre-style of the text when opening a txt file
+- The browser has to load only the String Content when opening an html file while it also has to load the pre-style of the text when opening a txt file 
+- HTML files are structured like a tree. You have a Head which can contain Objects, and those objects can contain other objects etc. After the head comes the body which contains the most content of the file. It can also contain objects inside objects inside objects etc.
+
+L02.3_HTML
+
+manipulating HTML. Look what I've done!
+![alt text](<Screenshot 2024-06-18 115135.png>)
