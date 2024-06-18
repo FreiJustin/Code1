@@ -55,3 +55,5 @@ L02.3_HTML
 
 manipulating HTML. Look what I've done!
 ![alt text](<Screenshot 2024-06-18 115135.png>)
+![alt text](<Screenshot 2024-06-18 124400.png>)
+![alt text](<Screenshot 2024-06-18 215103.png>)
