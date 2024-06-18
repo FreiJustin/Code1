@@ -57,3 +57,8 @@ manipulating HTML. Look what I've done!
 ![alt text](<Screenshot 2024-06-18 115135.png>)
 ![alt text](<Screenshot 2024-06-18 124400.png>)
 ![alt text](<Screenshot 2024-06-18 215103.png>)
+
+L02.4_ HTML
+- There are multiple tags like: cite (title), q (quotation marks), code (showing a part of the code), ins (custom text)
+- this [website](https://www.w3schools.com/tags/ref_byfunc.asp) says that you can categorise the tags by: basic HTML, Formatting, Forms and Input, Frames, Images, Audio and Video, Links, Lists, Tables, Styles and Semantics, Meta Info, Programming.
+- Basic attributes are for example src (pth to images), href (for hyperlinks, it defines a URL), width and height (defines the size of image in pixels), alt (alternate text for an image. If there has been a problem with loading the image, this alternate name will display), lang (language of the web page), title (defines extra information)
