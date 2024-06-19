@@ -1,14 +1,13 @@
 body{
     color:purple;
-    margin 0px;
 }
 
 div {
     display:block;
-    color:yellow;
-    height: 100px;
-    width: 130px;
-    top:300px;
-    left:100px;
+    color: yellow;
     position:relative;
+    background-color: purple;
+    width: 50px;
+    justify-content: center;
+    align-items: flex-end;
 }
