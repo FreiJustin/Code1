@@ -67,3 +67,14 @@ L02.5_HTML
 
 - We Activated GitHub Pages which is basically an easy way to make your own webpages with your github repository
 - Added links to the Tag demonstration and manipulation html files into a new index html file which will be presented in the github page when clicking on the github pages link.
+
+## Day 3
+
+L02.6_HTML
+
+- we made a branch Story which you can see here 
+
+L03.1_CSS
+
+- Cascading refers to the logic the browser uses to prefer a ruleset when there is a conflict between diffrent rulesets
+- 
