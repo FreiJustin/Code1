@@ -77,4 +77,12 @@ L02.6_HTML
 L03.1_CSS
 
 - Cascading refers to the logic the browser uses to prefer a ruleset when there is a conflict between diffrent rulesets
-- 
+
+L03.2_CSS
+
+- you can use CSS to address elements rleative to eachother or the page. You can do that with flex or grid
+- Having played the full ame of Flexbox Froggies, I am now a master of flex
+
+L03.3_CSS
+
+- you can use various ways to address elements like with an id or other attributes which you can select in CSS using multiple techniques I learned in CSS-Dine which I have beaten as well.
