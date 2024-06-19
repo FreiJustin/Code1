@@ -62,3 +62,8 @@ L02.4_ HTML
 - There are multiple tags like: cite (title), q (quotation marks), code (showing a part of the code), ins (custom text)
 - this [website](https://www.w3schools.com/tags/ref_byfunc.asp) says that you can categorise the tags by: basic HTML, Formatting, Forms and Input, Frames, Images, Audio and Video, Links, Lists, Tables, Styles and Semantics, Meta Info, Programming.
 - Basic attributes are for example src (pth to images), href (for hyperlinks, it defines a URL), width and height (defines the size of image in pixels), alt (alternate text for an image. If there has been a problem with loading the image, this alternate name will display), lang (language of the web page), title (defines extra information)
+
+L02.5_HTML
+
+- We Activated GitHub Pages which is basically an easy way to make your own webpages with your github repository
+- Added links to the Tag demonstration and manipulation html files into a new index html file which will be presented in the github page when clicking on the github pages link.
