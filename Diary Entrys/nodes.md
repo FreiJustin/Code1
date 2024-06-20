@@ -5,7 +5,7 @@ L00_Prerequests
 
 4 groups and installed git, nodejs (java script runtime environment), typescript (JavaScript Syntax extension) 
 & VisualStudios (Code editor) and some Extensions vor
-VisualStudios like ESLint (code analysis) and Git Graph (displaying Grap
+VisualStudios like ESLint (code analysis) and Git Graph (displaying Graph)
 
 L01.1_Git
 
