@@ -65,7 +65,7 @@ L02.4_ HTML
 
 L02.5_HTML
 
-- We Activated GitHub Pages which is basically an easy way to make your own webpages with your github repository
+- We Activated GitHub Pages which is basically an easy way to make your own webpages with your github repository<br>
 - Added links to the Tag demonstration and manipulation html files into a new index html file which will be presented in the github page when clicking on the github pages link.
 
 ## Day 3
@@ -80,7 +80,7 @@ L03.1_CSS
 
 L03.2_CSS
 
-- you can use CSS to address elements rleative to eachother or the page. You can do that with flex or grid
+- you can use CSS to address elements rleative to eachother or the page. You can do that with flex or grid<br>
 - Having played the full ame of Flexbox Froggies, I am now a master of flex
 
 L03.3_CSS
