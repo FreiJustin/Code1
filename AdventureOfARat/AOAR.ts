@@ -45,7 +45,7 @@ function start3():void{
     hastail=true;
     trapsnapped=false;
     hascheese=false;
-    ratname=prompt("What a run! Great Job! But there are more endings to be discovered. Lets go! How would you like to call your rat this time?", "Rattus Rattwos")!
+    ratname=prompt("What a run! Great Job! But there are more endings to be discovered. Lets go! How would you like to call your rat this time?", "Rattus Rattwos")!;
     if (ratname===null){
         ratname==="Rattus Rattwos";
     }
