@@ -17,6 +17,9 @@ function start1() {
     trapsnapped = false;
     hascheese = false;
     ratname = prompt("You are a rat. What is your name?", "Rattus Rattus");
+    if (ratname === null) {
+        ratname = "Rattus Rattus";
+    }
     initpos();
 }
 //Retry start
@@ -26,6 +29,9 @@ function start2() {
     trapsnapped = false;
     hascheese = false;
     ratname = prompt("New rat, new luck! What's your name this time?", "Rattus Rattus the second");
+    if (ratname === null) {
+        ratname = "Rattus Rattus the second";
+    }
     initpos();
 }
 //start after a win
@@ -35,6 +41,9 @@ function start3() {
     trapsnapped = false;
     hascheese = false;
     ratname = prompt("What a run! Great Job! But there are more endings to be discovered. Lets go! How would you like to call your rat this time?", "Rattus Rattwos");
+    if (ratname === null) {
+        ratname === "Rattus Rattwos";
+    }
     initpos();
 }
 //Initial position

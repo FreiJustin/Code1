@@ -20,6 +20,9 @@ function start1(): void{
     trapsnapped=false;
     hascheese=false;
     ratname=prompt("You are a rat. What is your name?", "Rattus Rattus")!;
+    if(ratname===null){
+        ratname="Rattus Rattus";
+    }
     initpos();
 }
 
@@ -30,6 +33,9 @@ function start2(): void{
     trapsnapped=false;
     hascheese=false;
     ratname=prompt("New rat, new luck! What's your name this time?", "Rattus Rattus the second")!;
+    if(ratname === null){
+        ratname="Rattus Rattus the second";
+    }
     initpos();
 }
 
@@ -40,6 +46,9 @@ function start3():void{
     trapsnapped=false;
     hascheese=false;
     ratname=prompt("What a run! Great Job! But there are more endings to be discovered. Lets go! How would you like to call your rat this time?", "Rattus Rattwos")!
+    if (ratname===null){
+        ratname==="Rattus Rattwos";
+    }
     initpos();
 }
 
