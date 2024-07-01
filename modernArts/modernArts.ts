@@ -17,10 +17,11 @@ let slayColor = [
 ]
 
 let slayfont = [
-    "cimicsans",
+    "comicsans",
     "helvetica",
     "futura"
 ]
+
 
 /*let spanElement: HTMLSpanElement = document.querySelector("span#idHello")!;
 spanElement.textContent = 'World'
