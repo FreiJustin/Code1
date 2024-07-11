@@ -1,23 +1,54 @@
-function runLater(){
-    console.log("run me now!")
+const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+const crc2: CanvasRenderingContext2D = canvas.getContext("2d")!;
+
+interface Bird {
+    x: number,
+    y: number,
+    size: number,
+    color: string,
 }
+let birds: Bird[] = createBirds(1000);
+drawBirds();
 
-setTimeout(runLater, 1000);
+function createBirds(_amount: number): Bird[] {
+    let birds: Bird[] = [];
+    for (let i: number = 0; i < _amount; i++) {
+        let bird: Bird = {
+            x: Math.random() * 600,
+            y: Math.random() * 600,
+            size: Math.random() * 50 + 10,
+            color: `hsl(${Math.random()*360}, 100%, 50%)`,
+        }
+           birds.push(bird);
+    }
+    return birds;
+}
+function drawBird(_bird: Bird): void{
+    let path: Path2D = new Path2D();
 
-let runs: number = 0
-let intervalId: number = setInterval(runEverySecond, 40);
-
-function runEverySecond(){
-    runs++;
-    console.log("Im running every second. This is run number", runs);
-    if(runs >= 5) {
-        clearInterval(intervalId);
+    path.rect(_bird.x, _bird.y, _bird.size, _bird.size);
+    crc2.fillStyle = _bird.color
+    crc2.fill(path);
+}
+function drawBirds(): void{
+    for (let i : number= 0; i < birds.length; i++) {
+        let bird = birds[i];
+        drawBird(bird);
     }
 }
 
-function frame(){
-    console.log("frame");
-    requestAnimationFrame(frame);
+const speed: number = 1;
+function updateBirds(){
+    for (let i: number = 0; i < birds.length; i++){
+        birds[i].x += speed;
+        
+    }       
 }
 
-requestAnimationFrame(frame);
+function animationFrame() {
+    crc2.clearRect(0, 0, canvas.width, canvas.height);
+    updateBirds();
+    drawBirds();
+    requestAnimationFrame(animationFrame);
+}
+requestAnimationFrame(animationFrame);
