@@ -1,15 +1,36 @@
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
 const crc: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
-//BombPosition
+//ClickListener
 
+canvas.addEventListener("click",checkClickedModule);
 
+function checkClickedModule(_event:MouseEvent):void{
+    console.log("click");
+    let moduleClicked:number = 99;
+    //check for x position
+    for(let i = 0; i<3 ; i++)
+    {
+        if (_event.offsetX> i*300 +20 && _event.offsetX < i*300 + 20 + 280){
+            moduleClicked = i;
+        }
+    }
+    //check for y position
+    for(let j = 0; j<2 ; j++){
+        if (_event.offsetY > (j*200) +20 && _event.offsetY < (j*200) +200){
+            moduleClicked += (j*3);
+        }
+    }
+    console.log("clikced module " + moduleClicked.toString());
+}
 
 //Arrays
 const cableColors:string[]= ["red","blue","yellow","black","white","#444444", "#444444"];
 const buttonColors:string[]= ["red","blue","yellow","white"];
-const buttonText:string[]= ["Push","Hold","Wait"," ", "Nothing"]
-const moduleType:string[]=["button", "cable"]
+const buttonText:string[]= ["Push","Hold","Wait"," ", "Nothing"];
+const moduleType:string[]=["button", "cable","morse"];
+const modulesInOrder:string[]=[];
+
 //where should the modulas be?
 crc.fillStyle = "#999999";
 crc.fillRect(10,10,900,400);
@@ -35,29 +56,28 @@ for(let i = 0; i<6 ; i++){
 // test for cable layout
 for(let k = 0; k<6; k++){
     //let moduleChosen:string = moduleType[Math.floor(Math.random()*2)];
-    let moduleChosen:string = "morse";
+    let moduleChosen:string = moduleType[Math.floor(Math.random()*3)];
     switch(moduleChosen){
         case "button":
             buildButton(k);
+            modulesInOrder.push("button");
             break;
         case "cable":
             buildCables(k);
+            modulesInOrder.push("cable");
             break;
         case "morse":
             morseCode(k);
+            modulesInOrder.push("morse");
             break;
     }
 }
 
-
-//what modulaType should the modula be? (0 = cables 1= button 2 = blind text)
-function declareModulas():void{
-let modula1 = randomModulaType();
-let modula2 = randomModulaType();
-let modula3 = randomModulaType();
-let modula4 = randomModulaType();
-let modula5 = randomModulaType();
+for(let i=0; i<modulesInOrder.length;i++){
+    console.log(modulesInOrder[i]);
 }
+
+
 
 function randomModulaType():number{
     return Math.floor(Math.random()*2);
@@ -182,14 +202,47 @@ let frame:number=0;
 
 function morse():void{
     frame++;
-    console.log("this is frame"+frame);
+    //console.log("this is frame"+frame);
     requestAnimationFrame(morse);
 }
 
 function morseCode(modula:number):void{
+    let row=0;
+    let newmodula= modula;
+    if (modula>=3){
+        row = 1;
+        newmodula -= 3;
+    }
     crc.fillStyle = "#999999";
-    crc.fillRect(125,40,70,50);
+    crc.fillRect((newmodula*300)+125,row*200+40,70,50);
     crc.strokeStyle = "black";
     crc.lineWidth=2;
-    crc.strokeRect(125,40,70,50);
+    crc.fillStyle = buttonColors[Math.floor(Math.random()*4)];
+    crc.fillRect(newmodula*300+195,row*200+55,105,20);
+    crc.fillStyle = buttonColors[Math.floor(Math.random()*4)];
+    crc.fillRect(newmodula*300+125,row*200+55,-105, 20);
+    crc.strokeRect(newmodula*300+125,row*200+40,70,50);
+    crc.strokeRect(newmodula*300+195,row*200+55,105,20);
+    crc.strokeRect(newmodula*300+125,row*200+55,-105, 20);
+    crc.fillStyle = "#BCAA22";
+    crc.fillRect(newmodula*300+100,row*200+105,120,80);
+    crc.strokeRect(newmodula*300+100,row*200+105,120,80);
+    crc.beginPath();
+    crc.moveTo(newmodula*300+90,row*200+105);
+    crc.lineTo(newmodula*300+90,row*200+185);
+    crc.lineTo(newmodula*300+50, row*200+145);
+    crc.closePath();
+    crc.fillStyle="white";
+    crc.fill();
+    crc.stroke();
+    crc.beginPath();
+    crc.moveTo(newmodula*300+230,row*200+105);
+    crc.lineTo(newmodula*300+230,row*200+185);
+    crc.lineTo(newmodula*300+270,row*200+145);
+    crc.closePath();
+    crc.fill();
+    crc.stroke();
+    crc.fillStyle = "black";
+    crc.font = "60px Comic Sans MS";
+    crc.fillText("1", newmodula*300+145,row*200+165);
 }
