@@ -1,8 +1,18 @@
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
 const crc: CanvasRenderingContext2D = canvas.getContext("2d")!;
+//Arrays
+const days:String[]= ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const cableColors:string[]= ["red","blue","yellow","black","white","#444444", "#444444"];
+const buttonColors:string[]= ["red","blue","yellow","white"];
+const buttonText:string[]= ["Push","Hold","Wait"," ", "Nothing"];
+const moduleType:string[]=["button", "cable","morse"];
+const modulesInOrder:string[]=[];
+const moduleData:string[][]=[[],[],[],[],[],[]];
 
 //ClickListener
-
+var currentDate= new Date();
+var weekday= days[currentDate.getDay()];
+console.log(weekday);
 canvas.addEventListener("click",checkClickedModule);
 
 function checkClickedModule(_event:MouseEvent):void{
@@ -21,15 +31,23 @@ function checkClickedModule(_event:MouseEvent):void{
             moduleClicked += (j*3);
         }
     }
-    console.log("clikced module " + moduleClicked.toString());
+    console.log("clikced module " + moduleClicked.toString() + ". This is a " + modulesInOrder[moduleClicked] + " Module.");
+    console.log("The Modules Data is: " + moduleData[moduleClicked]);
+    switch(modulesInOrder[moduleClicked]){
+        case "cable":
+            
+        case "button":
+            if(weekday == 'Thursday'|| weekday== 'Tuesday'|| weekday=='Saturday'|| weekday == 'Sunday'){
+                console.log("correct!");
+            }
+            else{
+                console.log("False!");
+            }
+            break;
+    }
 }
 
-//Arrays
-const cableColors:string[]= ["red","blue","yellow","black","white","#444444", "#444444"];
-const buttonColors:string[]= ["red","blue","yellow","white"];
-const buttonText:string[]= ["Push","Hold","Wait"," ", "Nothing"];
-const moduleType:string[]=["button", "cable","morse"];
-const modulesInOrder:string[]=[];
+
 
 //where should the modulas be?
 crc.fillStyle = "#999999";
@@ -87,13 +105,15 @@ function buildCables(module:number):void{
     for(let j = 0; j < 6 ; j++){    
         if(module<3){
             crc.fillStyle = "#444444";
-            crc.strokeStyle = cableColors[Math.floor(Math.random()*7)];
+            let cableColor:string = cableColors[Math.floor(Math.random()*7)];
+            crc.strokeStyle = cableColor;
             crc.beginPath();
             crc.lineWidth=10;
             crc.moveTo(module*300 +40, j*27 +40);
             crc.lineTo(module*300 + 280,j*27 +40);
             crc.stroke();
             crc.closePath();
+            moduleData[module].push(cableColor);
             if(crc.strokeStyle == "#444444"){
 
             }
@@ -104,13 +124,15 @@ function buildCables(module:number):void{
             }
         }
         else{
-            crc.strokeStyle = cableColors[Math.floor(Math.random()*6)];
+            let cableColor:string = cableColors[Math.floor(Math.random()*6)];
+            crc.strokeStyle = cableColor;
             crc.beginPath();
             crc.lineWidth=10;
             crc.moveTo((module-3)*300 +40, j*27 +240);
             crc.lineTo((module-3)*300 + 280,j*27 +240);
             crc.stroke();
             crc.closePath();
+            moduleData[module].push(cableColor);
             if(crc.strokeStyle=="#444444"){
 
             }
@@ -125,10 +147,13 @@ function buildCables(module:number):void{
 
 function buildButton(module:number):void{
     let chosenText:string= buttonText[Math.floor(Math.random()*5)];
+    moduleData[module].push(chosenText);
     if(module<3){
         crc.beginPath();
         crc.ellipse(module*300 +155,110,70,70,0,Math.PI*180,Math.PI*90,true);
-        crc.fillStyle = buttonColors[Math.floor(Math.random()*4)];
+        let buttonColor:string= buttonColors[Math.floor(Math.random()*4)];
+        crc.fillStyle = buttonColor;
+        moduleData[module].push(buttonColor);
         crc.fill();
         crc.strokeStyle="black";
         crc.lineWidth=2;
@@ -163,7 +188,9 @@ function buildButton(module:number):void{
     else{
         crc.beginPath();
         crc.ellipse((module-3)*300 +155,310,70,70,0,Math.PI*180,Math.PI*90,true);
-        crc.fillStyle = buttonColors[Math.floor(Math.random()*4)];
+        let buttonColor = buttonColors[Math.floor(Math.random()*4)];
+        crc.fillStyle = buttonColor;
+        moduleData[module].push(buttonColor);
         crc.fill();
         crc.strokeStyle="black";
         crc.lineWidth=2;
